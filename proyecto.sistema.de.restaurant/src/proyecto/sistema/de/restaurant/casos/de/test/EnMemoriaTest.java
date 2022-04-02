@@ -18,7 +18,7 @@ class EnMemoriaTest {
 
 	@Test
 	void enMemoriaTest() throws AppException {
-		// setup
+		// setup//
 		ArrayList<Mesa> mesas = new ArrayList<Mesa>();
 		mesas.add(new Mesa(4));
 		EnMemoriaRegistroDeInscripcion enMemoria = new EnMemoriaRegistroDeInscripcion();
