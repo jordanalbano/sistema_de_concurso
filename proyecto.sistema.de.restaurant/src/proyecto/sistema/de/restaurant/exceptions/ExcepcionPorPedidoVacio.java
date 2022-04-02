@@ -1,4 +1,4 @@
-package proyecto.sistema.de.restaurant.modelo;
+package proyecto.sistema.de.restaurant.exceptions;
 
 
 public class ExcepcionPorPedidoVacio extends RuntimeException {

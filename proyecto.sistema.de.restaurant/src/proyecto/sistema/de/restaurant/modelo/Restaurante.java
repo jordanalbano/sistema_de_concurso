@@ -1,6 +1,10 @@
 package proyecto.sistema.de.restaurant.modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+
+import proyecto.sistema.de.restaurant.exceptions.AppException;
+import proyecto.sistema.de.restaurant.exceptions.ExcepcionPorPedidoVacio;
 
 public class Restaurante {
 	private Integer codigo;
@@ -8,8 +12,11 @@ public class Restaurante {
 	private String descripcion;
 	private ArrayList<Pedido> pedidosActivos = new ArrayList<Pedido>();
 	private ArrayList<Mesa> mesasDisponibles = new ArrayList<Mesa>();
+	private RegistroDeInscripcion registro;
 
-	public Restaurante(Integer codigo, String nombre, String descripcion, ArrayList<Mesa> mesas) {
+	public Restaurante(Integer codigo, String nombre, String descripcion, ArrayList<Mesa> mesas,
+			RegistroDeInscripcion registro) {
+		this.registro = registro;
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
@@ -17,7 +24,10 @@ public class Restaurante {
 
 	}
 
-	public void cobrarPedido(Comensal comensal, Double porcentaje) {
+	public void cobrarPedido(Comensal comensal, Double porcentaje) throws AppException {
+		String registro = LocalDate.now().toString() + "||" + comensal.codigo() + "||" + this.codigo;
+		this.registro.registrar(registro);
+
 		comensal.pagar(porcentaje);
 	}
 

@@ -15,7 +15,7 @@ class TarjetaComarcaPlusTest {
 
 	@Test
 	void calcularCostoConTarjetaComarcaPlus() {
-		
+
 		// setup
 		TarjetaComarcaPlus tarjetaComarcaPlus = new TarjetaComarcaPlus(2.0);
 		ArrayList<Item> bebidas = new ArrayList<Item>();
@@ -24,12 +24,12 @@ class TarjetaComarcaPlusTest {
 		ArrayList<Item> platos = new ArrayList<Item>();
 		platos.add(new Item("plato", "sushi", 500));
 		Pedido pedido = new Pedido(bebidas, platos, 1);
-		Comensal comensal = new Comensal("Jordan", "Albano", tarjetaComarcaPlus, pedido);
+		Comensal comensal = new Comensal("Jordan", "Albano", tarjetaComarcaPlus, pedido, 4);
 		// ejercicio//testeo
 		Double res = comensal.pagar(2.0);
 		// verificar
 		assertEquals(999.6, res, 0.01);// tercer valor
-		
+
 	}
-	
+
 }

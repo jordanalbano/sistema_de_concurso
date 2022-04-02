@@ -5,12 +5,18 @@ public class Comensal {
 	private String apellido;
 	private TarjetaDeCredito tarjeta;
 	private Pedido pedido;
+	private int codigo;
 
-	public Comensal(String nombre, String apellido, TarjetaDeCredito tarjeta, Pedido pedido) {
+	public Comensal(String nombre, String apellido, TarjetaDeCredito tarjeta, Pedido pedido, int codigo) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.tarjeta = tarjeta;
 		this.pedido = pedido;
+		this.codigo = codigo;
+	}
+
+	public int codigo() {
+		return this.codigo;
 	}
 
 	public String nombre() {
